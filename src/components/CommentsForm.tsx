@@ -1,33 +1,37 @@
 "use client";
 
+import { submitComment } from "@/lib/graphql/comment";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
+interface SubmitProps {
+  message: string;
+}
+
 const schema = yup.object().shape({
   message: yup.string().max(300).required(),
 });
 
-export function CommentsForm() {
+export function CommentsForm({ slug }: { slug: string }) {
   const { data: session } = useSession();
+  const name = session?.user?.name;
+  const email = session?.user?.email;
 
   const {
     handleSubmit,
     register,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
     reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: any) => {
-    const name = session?.user?.name;
-    const email = session?.user?.email;
+  const onSubmit = (data: SubmitProps) => {
     const { message } = data;
-    //const obj = { name, email, message, slug };
-    //submitComment(obj);
-    console.log(data);
+    const obj = { name, email, message, slug };
+    submitComment(obj);
     reset();
   };
 
@@ -37,8 +41,9 @@ export function CommentsForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea
           placeholder="Message"
-          className="w-full h-28 p-3 rounded-md border border-gray-400 placeholder:text-gray-600"
+          className="w-full h-28 p-3 rounded-md border border-gray-400 placeholder:text-gray-400"
           maxLength={300}
+          disabled={!session}
           {...register("message")}
         />
         <button

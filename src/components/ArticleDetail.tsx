@@ -1,3 +1,4 @@
+import { Calendar, MessageSquare } from "lucide-react";
 import Image from "next/image";
 import { Comments } from "./Comments";
 import { CommentsForm } from "./CommentsForm";
@@ -19,24 +20,26 @@ export function ArticleDetail({ post }: { post: IPostAttribute }) {
         />
       </div>
       <div className="flex flex-col justify-between px-4 lg:px-10 py-6 space-y-8">
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Image
-              alt={post.author.name}
-              src={post.author.photo.url}
-              width={60}
-              height={60}
-              className="object-cover object-center w-12 h-12 rounded-full"
-            />
-            <div>
-              <h2 className="text-lg font-semibold">{post.author.name}</h2>
+        <div className="flex flex-col space-y-2">
+          <h2 className="text-3xl lg:text-4xl text-center lg:text-left font-extrabold">
+            {post.title}
+          </h2>
+
+          <div className="flex justify-around lg:justify-start lg:gap-6">
+            <div className="flex items-center gap-2">
+              <Calendar color="blue" />
               <span className="inline-block text-sm">
-                Publicado: {dateFormatter.format(new Date(post.createdAt))}
+                {dateFormatter.format(new Date(post.createdAt))}
               </span>
             </div>
+            <div className="flex items-center gap-2">
+              <MessageSquare color="blue" />
+              <p className="inline-block text-sm">
+                {post.comments.length}
+                <span className="hidden lg:inline-flex ml-1">Commentário</span>
+              </p>
+            </div>
           </div>
-
-          <h2 className="text-5xl font-extrabold">{post.title}</h2>
         </div>
 
         <div className="text-justify">
@@ -45,7 +48,7 @@ export function ArticleDetail({ post }: { post: IPostAttribute }) {
       </div>
 
       <section id="comment">
-        <CommentsForm />
+        <CommentsForm slug={post.slug} />
         {post.comments.length > 0 && <Comments comments={post.comments} />}
       </section>
     </div>

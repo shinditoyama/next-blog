@@ -9,6 +9,10 @@ interface IPostNode {
   node: IPostAttribute;
 }
 
+interface IPostDetail {
+  post: IPostDetailAttribute;
+}
+
 interface IPostAttribute {
   slug: string;
   title: string;
@@ -22,10 +26,6 @@ interface IPostAttribute {
   };
   comments: [IComments];
   createdAt: string;
-}
-
-interface IPostDetail {
-  post: IPostDetailAttribute;
 }
 
 interface IAuthor {

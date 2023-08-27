@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Blog
 
-## Getting Started
+![screenshot](https://raw.githubusercontent.com/shinditoyama/next-blog/main/public/assets/blog.gif)
 
-First, run the development server:
+## Descrição
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Este é um modelo minimalista de blog construído em Next 13, Tailwind CSS e Hygraph CMS.
+
+Se você deseja experimentar o sistema, confira a demonstração anexado no link abaixo:
+
+**live demo: [https://next-blog-xxv.vercel.app/](https://next-blog-xxv.vercel.app/)**
+
+## Tecnologias
+
+- [React](https://react.dev/)
+- [Next](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Next Auth](https://next-auth.js.org/)
+- [Hygraph](https://hygraph.com/)
+
+## Instalação
+
+Primeiro clone este repositório na sua máquina local.
+
+```
+$ git clone https://github.com/shinditoyama/next-blog.git
+$ cd next-blog
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Instale as dependências. Verifique se você já tem o nodejs e o npm instalado na sua máquina.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+$ npm install # or yarn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ao trabalhar com este repositório localmente com seu próprio projeto, você precisará adicionar o seguinte variável de ambiente ao seu arquivo `.env`:
 
-## Learn More
+```bash
+$ NEXTAUTH_URL={/* YOUR_KEY */}
+$ NEXTAUTH_SECRET={/* YOUR_KEY */}
 
-To learn more about Next.js, take a look at the following resources:
+$ GOOGLE_ID={/* YOUR_KEY */}
+$ GOOGLE_SECRET={/* YOUR_KEY */}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+$ HYGRAPH_URL={/* YOUR_KEY */}
+$ HYGRAPH_TOKEN={/* YOUR_KEY */}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Feito isso, execute o projeto.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+$ npm start # or yarn start
+```

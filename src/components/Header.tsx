@@ -11,7 +11,7 @@ export function Header() {
       <div className="container flex justify-between items-center mx-auto">
         <div className="flex">
           <Link href="/" className="text-xl font-medium">
-            Meu Blog
+            My Blog
           </Link>
         </div>
         <div className="space-x-2 flex-shrink-0 lg:flex">

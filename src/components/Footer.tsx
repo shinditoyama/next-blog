@@ -8,8 +8,8 @@ export function Footer() {
       <div className="flex justify-center items-center">
         <div className="text-sm text-center max-w-screen-sm space-y-4">
           <p>
-            Meu Blog - A constructive and inclusive social network for software
-            developers. With you every step of your journey.
+            My Blog - Um blog minimalista desenvolvido com Next 13, TailwindCSS
+            e Hygraph.
           </p>
           <p>&copy; {dateFormatter.format(new Date())} - Shindi Toyama.</p>
         </div>
